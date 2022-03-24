@@ -1,28 +1,39 @@
-import uuid
-
+import mptt
 from django.db import models
-
-
-# Create your models here.
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Employee(models.Model):
-    employee_id = models.UUIDField("employee_id", primary_key=True, default=uuid.uuid4)
-    name = models.CharField(max_length=32)
-    position = models.CharField(max_length=32)
-    employment_date = models.DateTimeField()
-    monthly_salary = models.IntegerField(default=0)
-    paid_salary = models.IntegerField(default=0)
+    name = models.CharField("ФИО", max_length=32)
+    position = models.CharField("Должность", max_length=32)
+    employment_date = models.DateTimeField("Дата приема на работу", )
+    monthly_salary = models.IntegerField("Заработная плата", default=0)
+    paid_salary = models.IntegerField("Всего выплачено", default=0)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
+
+    class Meta:
+        db_table = "employees"
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"
 
 
-class Relations(models.Model):
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    level = models.IntegerField()
-    lead_id = models.UUIDField()
+class Relation(MPTTModel):
+    name = models.ForeignKey(Employee, verbose_name="Сотрудник", on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='children',
+                            verbose_name="Руководитель")
 
-    def get_level(self):
-        return Relations(self.employee_id).level
+    def __str__(self):
+        return f"{self.name}"
 
+    class MPTTMeta:
+        level = 'mptt_level'
+        order_insertion_by = ['name']
+
+    class Meta:
+        db_table = "relations"
+        verbose_name_plural = "Отношения"
+
+
+mptt.register(Relation, order_insertion_by=['name'])
