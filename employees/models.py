@@ -1,4 +1,5 @@
 import mptt
+from django.core.exceptions import ValidationError
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
@@ -47,11 +48,11 @@ class Relation(MPTTModel):
         max_indent = 5
         lvl = self.parent.level
         if lvl >= max_indent - 1:
-            raise ValueError(f'Максимальная вложенность: {max_indent}')
+            raise ValidationError(f'Максимальная вложенность: {max_indent}')
 
     def validate_employee_is_equal_lead(self):
         if self.parent.name == self.name:
-            raise ValueError(f'Сотрудник не может подчиняться самому себе!')
+            raise ValidationError(f'Сотрудник не может подчиняться самому себе!')
 
     def validate_is_employee_lead(self):
         try:
@@ -59,7 +60,7 @@ class Relation(MPTTModel):
         except Relation.DoesNotExist:
             pass
         else:
-            raise ValueError(f'У сотрудника может быть только один руководитель!')
+            raise ValidationError(f'У сотрудника может быть только один руководитель!')
 
     def save(self, *args, **kwargs):
         if self.parent is not None:
