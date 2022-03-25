@@ -11,7 +11,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
     def get_lead(self, obj):
         lead = Relation.objects.get(name=obj).parent
-        lead_id = Employee.objects.get(name=obj).id
+        lead_id = Employee.objects.get(name=lead).id
         return format_html(f"<a href={lead_id}>{lead}</a>")
 
     get_lead.short_description = u'Руководитель'
