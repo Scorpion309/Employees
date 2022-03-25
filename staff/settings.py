@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'employees.apps.EmployeesConfig',
     'mptt',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
