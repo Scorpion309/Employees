@@ -1,21 +1,67 @@
 import mptt
-from django.contrib.auth import get_user_model
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.exceptions import ValidationError
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
-User = get_user_model()
+class MyUserManager(BaseUserManager):
+    def create_user(self, name, position, employment_date, monthly_salary, api_user, paid_salary=0,  password=None):
+        if not name:
+            raise ValueError('Пользователь должен иметь имя!')
 
+        user = self.model(
+            name=name,
+            position=position,
+            employment_date=employment_date,
+            monthly_salary=monthly_salary,
+            paid_salary=paid_salary,
+            api_user=api_user,
+        )
 
-class Employee(models.Model):
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, name, position, employment_date, monthly_salary, api_user, paid_salary=0,  password=None):
+        user = self.create_user(
+            name=name,
+            password=password,
+            position=position,
+            employment_date=employment_date,
+            monthly_salary=monthly_salary,
+            paid_salary=paid_salary,
+            api_user=api_user,
+        )
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
+
+class Employee(AbstractBaseUser):
     name = models.CharField('ФИО', max_length=32, unique=True)
     position = models.CharField('Должность', max_length=32)
     employment_date = models.DateTimeField('Дата приема на работу', )
     monthly_salary = models.IntegerField('Заработная плата', default=0)
     paid_salary = models.IntegerField('Всего выплачено', default=0)
+    api_user = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+    objects = MyUserManager()
+
+    USERNAME_FIELD = 'name'
+    REQUIRED_FIELDS = ['position', 'employment_date']
 
     def __str__(self):
         return f'{self.name}'
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_admin
 
     class Meta:
         db_table = 'employees'
