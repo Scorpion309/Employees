@@ -1,11 +1,14 @@
 import mptt
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+User = get_user_model()
+
 
 class Employee(models.Model):
-    name = models.CharField('ФИО', max_length=32)
+    name = models.CharField('ФИО', max_length=32, unique=True)
     position = models.CharField('Должность', max_length=32)
     employment_date = models.DateTimeField('Дата приема на работу', )
     monthly_salary = models.IntegerField('Заработная плата', default=0)
