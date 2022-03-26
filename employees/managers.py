@@ -38,8 +38,8 @@ class MyUserManager(BaseUserManager):
                          user_name,
                          position,
                          employment_date,
+                         api_user,
                          monthly_salary=0,
-                         api_user=True,
                          paid_salary=0,
                          password=None,
                          ):
@@ -54,5 +54,6 @@ class MyUserManager(BaseUserManager):
             api_user=api_user,
         )
         user.is_admin = True
+        user.api_user = True
         user.save(using=self._db)
         return user
