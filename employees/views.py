@@ -2,15 +2,18 @@ from rest_framework import generics
 from rest_framework.response import Response
 
 from employees.models import Employee, Relation
+from employees.permissions import IsUserInAPIGroup
 from employees.serializers import EmployeesListSerializer
 
 
 class EmployeeListView(generics.ListAPIView):
+    permission_classes = (IsUserInAPIGroup,)
     serializer_class = EmployeesListSerializer
     queryset = Employee.objects.all()
 
 
 class EmployeeOneLevelListView(generics.ListAPIView):
+    permission_classes = (IsUserInAPIGroup,)
     serializer_class = EmployeesListSerializer
 
     def get_queryset(self):
