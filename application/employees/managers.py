@@ -38,7 +38,7 @@ class MyUserManager(BaseUserManager):
                          user_name,
                          position,
                          employment_date,
-                         api_user,
+                         api_user=False,
                          monthly_salary=0,
                          paid_salary=0,
                          password=None,
