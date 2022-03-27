@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres_db:
+    container_name: postgres
+    build:
+      context: ./db
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  application:
+    container_name: application
+    build:
+      context: ./application
+    env_file:
+      - .env
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres_db
+
+volumes:
+  postgres_data:
