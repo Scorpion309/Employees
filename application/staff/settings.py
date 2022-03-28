@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'employees.apps.EmployeesConfig',
     'mptt',
     'rest_framework',
+    'django_seed',
 ]
 
 MIDDLEWARE = [

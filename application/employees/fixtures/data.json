@@ -1,0 +1,349 @@
+[{
+  "model": "employees.employee",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+    "last_login": "2022-03-27T19:04:50.533Z",
+    "name": "NewUser",
+    "user_name": "newuser",
+    "position": "qa",
+    "employment_date": "2022-03-12T00:00:00Z",
+    "monthly_salary": 900,
+    "paid_salary": 0,
+    "api_user": true,
+    "is_active": true,
+    "is_admin": true
+  }
+},
+  {
+    "model": "employees.employee",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "Alex",
+      "user_name": "Alex",
+      "position": "dev",
+      "employment_date": "2022-03-26T09:45:06Z",
+      "monthly_salary": 600,
+      "paid_salary": 0,
+      "api_user": true,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "root",
+      "user_name": "root",
+      "position": "admin",
+      "employment_date": "2022-03-26T09:52:27Z",
+      "monthly_salary": 544,
+      "paid_salary": 0,
+      "api_user": true,
+      "is_active": true,
+      "is_admin": true
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "Roman",
+      "user_name": "Roman",
+      "position": "dev",
+      "employment_date": "2022-03-26T09:53:12Z",
+      "monthly_salary": 700,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$OODaBz9P6MkCK7ClsumQ2x$mMronEWwS384+rc61Etl5/l6QuRCaZwrnwEMqMfI0lo=",
+      "last_login": "2022-03-26T10:41:28.111Z",
+      "name": "Alexei",
+      "user_name": "Alexei",
+      "position": "ba",
+      "employment_date": "2022-12-22T00:00:00Z",
+      "monthly_salary": 800,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": "2022-03-27T11:06:45.505Z",
+      "name": "Olga",
+      "user_name": "Olga",
+      "position": "ba",
+      "employment_date": "2022-03-12T00:00:00Z",
+      "monthly_salary": 750,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "Alexander",
+      "user_name": "Alexander",
+      "position": "qa",
+      "employment_date": "2022-03-26T09:45:06Z",
+      "monthly_salary": 480,
+      "paid_salary": 0,
+      "api_user": true,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "Anton",
+      "user_name": "Anton",
+      "position": "dev",
+      "employment_date": "2022-03-26T09:52:27Z",
+      "monthly_salary": 544,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$fdzDl5NSpQjoM8fmgkcA7X$RC2eQThFcI9/R4oEK8BMDi20Pk3Izd1O43QSoakXUKA=",
+      "last_login": null,
+      "name": "Dmitry",
+      "user_name": "Dmitry",
+      "position": "qa",
+      "employment_date": "2022-03-26T09:53:12Z",
+      "monthly_salary": 600,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$OODaBz9P6MkCK7ClsumQ2x$mMronEWwS384+rc61Etl5/l6QuRCaZwrnwEMqMfI0lo=",
+      "last_login": "2022-03-26T10:41:28.111Z",
+      "name": "Valentine",
+      "user_name": "Valentine",
+      "position": "dev",
+      "employment_date": "2022-12-22T00:00:00Z",
+      "monthly_salary": 1000,
+      "paid_salary": 0,
+      "api_user": true,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$OODaBz9P6MkCK7ClsumQ2x$mMronEWwS384+rc61Etl5/l6QuRCaZwrnwEMqMfI0lo=",
+      "last_login": null,
+      "name": "Django_user",
+      "user_name": "Django_user",
+      "position": "qa",
+      "employment_date": "2022-03-27T19:08:09Z",
+      "monthly_salary": 300,
+      "paid_salary": 0,
+      "api_user": true,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$OODaBz9P6MkCK7ClsumQ2x$mMronEWwS384+rc61Etl5/l6QuRCaZwrnwEMqMfI0lo=",
+      "last_login": null,
+      "name": "Marciano",
+      "user_name": "Marciano",
+      "position": "dev",
+      "employment_date": "2022-03-27T19:09:57Z",
+      "monthly_salary": 250,
+      "paid_salary": 0,
+      "api_user": false,
+      "is_active": true,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 1,
+    "fields": {
+      "name": 2,
+      "parent": null,
+      "lft": 1,
+      "rght": 14,
+      "tree_id": 1,
+      "level": 0
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 2,
+    "fields": {
+      "name": 3,
+      "parent": 1,
+      "lft": 2,
+      "rght": 11,
+      "tree_id": 1,
+      "level": 1
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 3,
+    "fields": {
+      "name": 4,
+      "parent": 2,
+      "lft": 3,
+      "rght": 4,
+      "tree_id": 1,
+      "level": 2
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 4,
+    "fields": {
+      "name": 5,
+      "parent": 2,
+      "lft": 5,
+      "rght": 10,
+      "tree_id": 1,
+      "level": 2
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 5,
+    "fields": {
+      "name": 6,
+      "parent": 1,
+      "lft": 12,
+      "rght": 13,
+      "tree_id": 1,
+      "level": 1
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 6,
+    "fields": {
+      "name": 7,
+      "parent": null,
+      "lft": 1,
+      "rght": 10,
+      "tree_id": 2,
+      "level": 0
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 7,
+    "fields": {
+      "name": 8,
+      "parent": 6,
+      "lft": 2,
+      "rght": 5,
+      "tree_id": 2,
+      "level": 1
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 8,
+    "fields": {
+      "name": 9,
+      "parent": 6,
+      "lft": 6,
+      "rght": 9,
+      "tree_id": 2,
+      "level": 1
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 9,
+    "fields": {
+      "name": 10,
+      "parent": 4,
+      "lft": 6,
+      "rght": 9,
+      "tree_id": 1,
+      "level": 3
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 10,
+    "fields": {
+      "name": 1,
+      "parent": 8,
+      "lft": 7,
+      "rght": 8,
+      "tree_id": 2,
+      "level": 2
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 11,
+    "fields": {
+      "name": 11,
+      "parent": 9,
+      "lft": 7,
+      "rght": 8,
+      "tree_id": 1,
+      "level": 4
+    }
+  },
+  {
+    "model": "employees.relation",
+    "pk": 12,
+    "fields": {
+      "name": 12,
+      "parent": 7,
+      "lft": 3,
+      "rght": 4,
+      "tree_id": 2,
+      "level": 2
+    }
+  }
+]
