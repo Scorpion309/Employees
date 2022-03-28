@@ -29,7 +29,7 @@ services:
       context: ./application
     env_file:
       - .env
-    command: celery -A staff worker --loglevel=info -E
+    command: celery -A staff worker --loglevel=info -E --beat
     depends_on:
       - application
       - redis
