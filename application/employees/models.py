@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from mptt.models import MPTTModel, TreeForeignKey
+from django.core.validators import MinValueValidator
 
 from employees.managers import MyUserManager
 
@@ -29,8 +30,16 @@ class Employee(AbstractBaseUser):
         help_text=_("Обязательное поле. Длина должна быть не более 32 символов!"),
     )
     employment_date = models.DateTimeField(_('Дата приема на работу'))
-    monthly_salary = models.IntegerField(_('Заработная плата'), default=0)
-    paid_salary = models.IntegerField(_('Всего выплачено'), default=0)
+    monthly_salary = models.IntegerField(
+        _('Заработная плата'),
+        default=0,
+        validators=[MinValueValidator(0)],
+    )
+    paid_salary = models.IntegerField(
+        _('Всего выплачено'),
+        default=0,
+        validators=[MinValueValidator(0)],
+    )
     api_user = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
