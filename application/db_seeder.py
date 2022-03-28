@@ -17,6 +17,8 @@ from employees.models import Employee, Relation
 def parse():
     parser = argparse.ArgumentParser(description='Database seeder')
     parser.add_argument('-n', '--number', type=int, default=20, help='Number of employees to seed')
+    parser.add_argument('-r', '--relations', type=int, default=1,
+                        help='Do you need to seed relations? Default=1')
     argsfromline = parser.parse_args()
     return argsfromline
 
@@ -36,9 +38,11 @@ seeder.add_entity(Employee, args.number, {
     'is_active': True,
     'is_admin': False,
 })
-seeder.add_entity(Relation, args.number, {
-    'level': lambda x: random.choice([0, 1, 2, 3, 4]),
-})
+
+if args.relations:
+    seeder.add_entity(Relation, args.number, {
+        'level': lambda x: random.choice([0, 1, 2, 3, 4]),
+    })
 
 try:
     inserted_pks = seeder.execute()
