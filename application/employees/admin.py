@@ -2,10 +2,15 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from .models import Employee, Relation
+from .tasks import async_delete_paid_salary
 
 
 def delete_paid_salary(modeladmin, request, queryset):
-    queryset.update(paid_salary=0)
+    if len(queryset) <= 20:
+        queryset.update(paid_salary=0)
+    else:
+        employees = [employee.name for employee in queryset]
+        async_delete_paid_salary.delay(employees)
 
 
 delete_paid_salary.short_description = "Удалить выплаченную заработную плату."
