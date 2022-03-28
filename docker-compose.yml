@@ -21,6 +21,24 @@ services:
       - 8000:8000
     depends_on:
       - postgres_db
+      - redis
+
+  celery:
+    container_name: celery
+    build:
+      context: ./application
+    env_file:
+      - .env
+    command: celery -A staff worker --loglevel=info -E --beat
+    depends_on:
+      - application
+      - redis
+
+  redis:
+    container_name: redis
+    env_file:
+      - .env
+    image: redis:6-alpine
 
 volumes:
   postgres_data:
