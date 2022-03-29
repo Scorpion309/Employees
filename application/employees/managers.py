@@ -20,7 +20,6 @@ class MyUserManager(BaseUserManager):
 
         user = self.model(
             name=name,
-            password=password,
             user_name=user_name,
             position=position,
             employment_date=employment_date,
