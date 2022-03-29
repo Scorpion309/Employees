@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
+from datetime import datetime
 
 
 class MyUserManager(BaseUserManager):
@@ -36,7 +37,7 @@ class MyUserManager(BaseUserManager):
                          name,
                          user_name,
                          position,
-                         employment_date,
+                         employment_date=datetime.now(),
                          api_user=False,
                          monthly_salary=0,
                          paid_salary=0,
