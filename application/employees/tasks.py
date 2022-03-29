@@ -9,7 +9,7 @@ logger = get_task_logger(__name__)
 
 @app.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
-    sender.add_periodic_task(crontab(hour='*/2'), task_pay_salary.s(), name='Pay_every_2_hours')
+    sender.add_periodic_task(crontab(minute=0, hour='*/2'), task_pay_salary.s(), name='Pay_every_2_hours')
 
 
 @app.task

@@ -46,7 +46,7 @@ class Employee(AbstractBaseUser):
     objects = MyUserManager()
 
     USERNAME_FIELD = 'user_name'
-    REQUIRED_FIELDS = ['name', 'position', 'employment_date']
+    REQUIRED_FIELDS = ['name', 'position']
 
     def __str__(self):
         return f'{self.name}'
