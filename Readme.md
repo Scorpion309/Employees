@@ -9,7 +9,11 @@
     docker-compose up --build -d
     ```
 
-- Выполните миграции базы данных, с помощью команды:
+- Выполните миграции базы данных, с помощью команд:
+
+    ```bash
+    docker-compose exec application python3 manage.py makemigrations --noinput
+    ```
 
     ```bash
     docker-compose exec application python3 manage.py migrate --noinput
